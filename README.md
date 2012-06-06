@@ -107,7 +107,14 @@ cached template in a fraction of the time.
 </tbody>
 </table></p>
 
-Rendering from cached templates puts Elefant at 5x faster and using 1/5th
+Rendering from cached templates puts Elefant at 8x faster and using 1/5th
 of the memory as Twig does. Interestingly, regenerating templates in Elefant
 uses only 6 KB more memory than rendering from cache, and is also faster
 than Twig is at rendering a template from cache.
+
+## Notes
+
+I would like to note that this benchmark only tests actual rendering and
+not the setup of the engines themselves. This way it's testing the actual
+rendering, which may occur more than once per instantiation of the engine,
+and not how much time the setup takes.
