@@ -1,7 +1,8 @@
 # Template Benchmark
 
 This is a simple benchmark to test the memory usage and speed of rendering
-templates using [Elefant](http://www.elefantcms.com/)'s Template class and
+templates using [Elefant](http://www.elefantcms.com/)'s
+[Template engine](http://www.elefantcms.com/wiki/Templates) and
 [Twig](http://twig.sensiolabs.org/).
 
 ## Machine specs
