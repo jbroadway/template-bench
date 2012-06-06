@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+
+{% if show_people %}
+	<ul>
+	{% for person in people %}
+		<li>{{person}}</li>
+	{% endfor %}
+	</ul>
+{% endif %}

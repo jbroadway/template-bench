@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+
+{% if show_people %}
+	<ul>
+	{% foreach people %}
+		<li>{{loop_value}}</li>
+	{% end %}
+	</ul>
+{% end %}
