@@ -71,8 +71,8 @@ of the template. Subsequent runs will use the cached templates.
 <tbody>
 <tr>
 <td> Raw PHP </td>
-<td> n/a </td>
-<td> n/a </td>
+<td> 0.00012397766113281 </td>
+<td> 7 KB </td>
 </tr>
 <tr>
 <td> Elefant </td>
@@ -109,8 +109,8 @@ and generates the cached template in a fraction of the time.
 <tbody>
 <tr>
 <td> Raw PHP </td>
-<td> 0.00010013580322266 </td>
-<td> 10 KB </td>
+<td> 0.00012397766113281 </td>
+<td> 7 KB </td>
 </tr>
 <tr>
 <td> Elefant </td>
@@ -153,7 +153,7 @@ of how much memory each templating engine consumes during its setup:
 <tbody>
 <tr>
 <td> Raw PHP </td>
-<td> n/a </td>
+<td> 0 KB </td>
 </tr>
 <tr>
 <td> Elefant </td>
@@ -173,3 +173,9 @@ of how much memory each templating engine consumes during its setup:
 The results clearly show Elefant leading in memory usage and speed, with
 Smarty 3 a close second on performance, and Twig trailing behind on rendering
 but still using less overall memory than Smarty 3.
+
+## Notes
+
+The raw PHP test added a sanitizing function, since that is such an important
+consideration in data output. This function simply wraps `htmlspecialchars()`
+with the appropriate parameters.

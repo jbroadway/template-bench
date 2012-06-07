@@ -10,6 +10,17 @@
 
 require_once ('lib/Functions.php');
 
+// raw php
+$mem = memory_get_peak_usage ();
+function escape ($val, $charset = 'UTF-8') {
+	return htmlspecialchars ($val, ENT_QUOTES, $charset);
+}
+function template ($file, $data) {
+	extract ($data);
+	require ($file);
+}
+echo "Raw PHP: " . format_filesize (memory_get_peak_usage () - $mem) . "\n";
+
 // elefant
 $mem = memory_get_peak_usage ();
 require_once ('lib/Controller.php');

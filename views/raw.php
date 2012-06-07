@@ -1,9 +1,9 @@
-<h1><?php echo $data['title']; ?></h1>
+<h1><?php echo escape ($title); ?></h1>
 
-<?php if ($data['show_people']): ?>
+<?php if ($show_people): ?>
 	<ul>
-	<?php foreach ($data['people'] as $person): ?>
-		<li><?php echo $person; ?></li>
+	<?php foreach ($people as $person): ?>
+		<li><?php echo escape ($person); ?></li>
 	<?php endforeach; ?>
 	</ul>
 <?php endif; ?>
