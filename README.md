@@ -2,8 +2,8 @@
 
 This is a simple benchmark to test the memory usage and speed of rendering
 templates using [Elefant](http://www.elefantcms.com/)'s
-[Template engine](http://www.elefantcms.com/wiki/Templates) and
-[Twig](http://twig.sensiolabs.org/).
+[Template engine](http://www.elefantcms.com/wiki/Templates),
+[Twig](http://twig.sensiolabs.org/), and [Smarty 3](http://www.smarty.net/).
 
 ## Machine specs
 
@@ -51,6 +51,7 @@ git clone https://github.com/jbroadway/template-bench.git
 This adds two URLs to Elefant:
 
 * http://www.example.com/template-bench/elefant
+* http://www.example.com/template-bench/smarty3
 * http://www.example.com/template-bench/twig
 
 The first time each of these is run, it will generate the cached copy
@@ -73,6 +74,11 @@ of the template. Subsequent runs will use the cached templates.
 <td> 60 KB </td>
 </tr>
 <tr>
+<td> Smarty 3 </td>
+<td> 0.033155918121338 </td>
+<td> 4.7 MB </td>
+</tr>
+<tr>
 <td> Twig </td>
 <td> 0.051060914993286 </td>
 <td> 2.9 MB </td>
@@ -81,8 +87,8 @@ of the template. Subsequent runs will use the cached templates.
 </table></p>
 
 In the compilation step, which runs whenever a template file has changed,
-Elefant uses negligible memory compared to Twig's 2.9 MB, and generates the
-cached template in a fraction of the time.
+Elefant uses negligible memory compared to Twig's 2.9 MB and Smarty's 4.7 MB,
+and generates the cached template in a fraction of the time.
 
 ## Rendering from cached template
 
@@ -101,6 +107,11 @@ cached template in a fraction of the time.
 <td> 54 KB </td>
 </tr>
 <tr>
+<td> Smarty 3 </td>
+<td> 0.00063490867614746 </td>
+<td> 8 KB </td>
+</tr>
+<tr>
 <td> Twig </td>
 <td> 0.0015380382537842 </td>
 <td> 248 KB </td>
@@ -109,13 +120,41 @@ cached template in a fraction of the time.
 </table></p>
 
 Rendering from cached templates puts Elefant at 8x faster and using 1/5th
-of the memory as Twig does. Interestingly, regenerating templates in Elefant
-uses only 6 KB more memory than rendering from cache, and is also faster
-than Twig is at rendering a template from cache.
+of the memory as Twig does, and about 3x faster than Smarty. Interestingly,
+regenerating templates in Elefant uses only 6 KB more memory than rendering
+from cache, and is also faster than Twig is at rendering a template from cache,
+and equal in speed to Smarty's compiled performance.
 
-## Notes
+## Setup memory usage
 
-I would like to note that this benchmark only tests actual rendering and
-not the setup of the engines themselves. This way it's testing the actual
-rendering, which may occur more than once per instantiation of the engine,
-and not how much time the setup takes.
+I also wanted to see how much memory the setup for each library required.
+For this, I went outside of the Elefant framework in order to load each
+library independently of the framework surrounding it. Here are the results
+of how much memory each templating engine consumes during its setup:
+
+<p><table>
+<thead>
+<tr>
+<th> Engine </th>
+<th> Memory </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Elefant </td>
+<td> 375 KB </td>
+</tr>
+<tr>
+<td> Smarty 3 </td>
+<td> 1.7 MB </td>
+</tr>
+<tr>
+<td> Twig </td>
+<td> 851 KB </td>
+</tr>
+</tbody>
+</table></p>
+
+The results clearly show Elefant leading in memory usage and speed, with
+Smarty 3 a close second on performance, and Twig trailing behind on rendering
+but still using less overall memory than Smarty 3.
