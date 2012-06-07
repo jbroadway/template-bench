@@ -1,0 +1,9 @@
+<h1>{$title|escape}</h1>
+
+{if $show_people}
+	<ul>
+	{foreach $people as $person}
+		<li>{$person|escape}</li>
+	{/foreach}
+	</ul>
+{/if}
