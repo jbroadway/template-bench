@@ -48,7 +48,7 @@ cd apps
 git clone https://github.com/jbroadway/template-bench.git
 ```
 
-This adds two URLs to Elefant:
+This adds the following new URLs to Elefant:
 
 * http://www.example.com/template-bench/elefant
 * http://www.example.com/template-bench/smarty3
