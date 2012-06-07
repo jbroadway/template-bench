@@ -51,6 +51,7 @@ git clone https://github.com/jbroadway/template-bench.git
 This adds the following new URLs to Elefant:
 
 * http://www.example.com/template-bench/elefant
+* http://www.example.com/template-bench/raw
 * http://www.example.com/template-bench/smarty3
 * http://www.example.com/template-bench/twig
 
@@ -68,6 +69,11 @@ of the template. Subsequent runs will use the cached templates.
 </tr>
 </thead>
 <tbody>
+<tr>
+<td> Raw PHP </td>
+<td> n/a </td>
+<td> n/a </td>
+</tr>
 <tr>
 <td> Elefant </td>
 <td> 0.00062322616577148 </td>
@@ -101,6 +107,11 @@ and generates the cached template in a fraction of the time.
 </tr>
 </thead>
 <tbody>
+<tr>
+<td> Raw PHP </td>
+<td> 0.00010013580322266 </td>
+<td> 10 KB </td>
+</tr>
 <tr>
 <td> Elefant </td>
 <td> 0.00019192695617676 </td>
@@ -140,6 +151,10 @@ of how much memory each templating engine consumes during its setup:
 </tr>
 </thead>
 <tbody>
+<tr>
+<td> Raw PHP </td>
+<td> n/a </td>
+</tr>
 <tr>
 <td> Elefant </td>
 <td> 375 KB </td>
